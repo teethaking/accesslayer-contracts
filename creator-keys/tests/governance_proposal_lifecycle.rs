@@ -130,13 +130,12 @@ fn proposal_lifecycle_uses_snapshot_weights_quorum_and_closes() {
     assert_eq!(final_result.vote_counts.get(0).unwrap(), 97);
     assert_eq!(final_result.vote_counts.get(1).unwrap(), 3);
     assert_eq!(final_result.total_weight, 100);
-    let winning_option = if final_result.vote_counts.get(0).unwrap()
-        > final_result.vote_counts.get(1).unwrap()
-    {
-        0
-    } else {
-        1
-    };
+    let winning_option =
+        if final_result.vote_counts.get(0).unwrap() > final_result.vote_counts.get(1).unwrap() {
+            0
+        } else {
+            1
+        };
     assert_eq!(winning_option, 0);
 
     // The close event carries the final participation result and quorum flag.
